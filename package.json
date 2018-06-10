@@ -1,6 +1,6 @@
 {
   "name": "@jarmee/schematics",
-  "version": "1.0.0-alpha",
+  "version": "1.0.2-alpha",
   "description": "A collection of schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -19,9 +19,7 @@
   ],
   "author": "jarmee",
   "license": "MIT",
-  "main": "lib/dom-matchers.js",
-  "types": "lib/dom-matchers.d.ts", 
-  "schematics": "./src/collection.json",
+  "schematics": "./lib/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^0.6.8",
     "@angular-devkit/schematics": "^0.6.8",
