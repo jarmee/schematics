@@ -1,3 +1,5 @@
 # Ignores TypeScript files, but keeps definitions.
-src
-!*/files/src/*
+*.ts
+!*jestGlobalMocks.ts
+!*setUpJest.ts
+!*.d.ts
