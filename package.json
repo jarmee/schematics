@@ -19,6 +19,8 @@
   ],
   "author": "jarmee",
   "license": "MIT",
+  "main": "lib/dom-matchers.js",
+  "types": "lib/dom-matchers.d.ts", 
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^0.6.8",
@@ -29,5 +31,9 @@
   "devDependencies": {
     "@types/jasmine": "^2.6.0",
     "jasmine": "^2.8.0"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.5.1"
   }
 }
