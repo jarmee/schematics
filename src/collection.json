@@ -1,9 +1,9 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "angular-jest": {
+    "add-jest-support": {
       "description": "A blank schematic.",
-      "factory": "./angular-jest/index#angularJest"
+      "factory": "./schematics/add-jest-support/index#addJestSupport"
     }
   }
 }

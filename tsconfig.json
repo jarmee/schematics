@@ -5,6 +5,7 @@
       "es2017",
       "dom"
     ],
+    "outDir": "dist/",
     "declaration": true,
     "module": "commonjs",
     "moduleResolution": "node",
@@ -29,6 +30,6 @@
     "src/**/*"
   ],
   "exclude": [
-    "src/*/files/**/*"
+    "src/**/files/**/*"
   ]
 }
