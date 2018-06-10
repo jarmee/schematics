@@ -1,8 +1,12 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
+    "ng-add": {
+      "description": "Add jest support to angular project",
+      "factory": "./schematics/add-jest-support/index#addJestSupport"
+    },
     "add-jest-support": {
-      "description": "A blank schematic.",
+      "description": "Add jest support to angular project",
       "factory": "./schematics/add-jest-support/index#addJestSupport"
     }
   }
