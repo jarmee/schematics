@@ -12,7 +12,6 @@ export interface AngularJestOptions {
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function addJestSupport(options: AngularJestOptions): Rule {
-  debugger;
   return chain([
     addJestConfig(options),
     addJestScripts(options),
