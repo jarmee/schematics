@@ -4,7 +4,8 @@
   "description": "A collection of schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "test": "npm run build && jasmine src/**/*_spec.js",
+    "debug": "node --inspect-brk  %APPDATA%/npm/node_modules/@angular-devkit/schematics-cli/bin/schematics.js .:add-jest-support"
   },
   "repository": {
     "type": "git",
