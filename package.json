@@ -3,9 +3,10 @@
   "version": "1.1.0-alpha",
   "description": "A collection of schematics",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && npm run copy-non-ts-files",
     "test": "npm run build && jasmine src/**/*_spec.js",
-    "debug": "node --inspect-brk  %APPDATA%/npm/node_modules/@angular-devkit/schematics-cli/bin/schematics.js .:add-jest-support"
+    "debug": "node --inspect-brk  %APPDATA%/npm/node_modules/@angular-devkit/schematics-cli/bin/schematics.js .:add-jest-support",
+    "copy-non-ts-files": "node ./scripts/copy-files.js ./src/schematics/add-jest-support/files/ ./lib/schematics/add-jest-support/files"
   },
   "repository": {
     "type": "git",
