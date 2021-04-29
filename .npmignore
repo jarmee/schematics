@@ -1,5 +1,5 @@
 # Ignores TypeScript files, but keeps definitions.
 *.ts
 !*jestGlobalMocks.ts
-!*setUpJest.ts
+!*setup-jest.ts
 !*.d.ts
