@@ -1,46 +1,76 @@
-import { Rule, mergeWith, apply, url, Tree, SchematicContext, chain, MergeStrategy } from '@angular-devkit/schematics';
 import {
-  NodePackageInstallTask
-} from '@angular-devkit/schematics/tasks';
-import { addPackageJsonDependency, addPropertyToPackageJson, addScriptToPackageJson } from '../utils/package';
-import { jestVersion, jestAngularPreset } from '../add-jest-support/supportedVersions';
+  apply,
+  chain,
+  MergeStrategy,
+  mergeWith,
+  Rule,
+  SchematicContext,
+  Tree,
+  url,
+} from "@angular-devkit/schematics";
+import { NodePackageInstallTask } from "@angular-devkit/schematics/tasks";
+import {
+  jestPresetAngularVersion,
+  jestVersion,
+  typesJestVersion,
+} from "../add-jest-support/supportedVersions";
+import {
+  addPackageJsonDependency,
+  addPropertyToTsConfigSpecCompilerOptions,
+  addScriptToPackageJson,
+  addTypeToTsConfigSpecCompilerOptions,
+} from "../utils/package";
 
 export interface AngularJestOptions {
   skipInstall: boolean;
 }
 
-// You don't have to export the function as default. You can also have more than one rule factory
-// per file.
 export function addJestSupport(options: AngularJestOptions): Rule {
   return chain([
-    addJestConfig(options),
     addJestScripts(options),
     addDependendencies(options),
     installDependencies(options),
-    mergeWith(apply(url('./files'), []),  MergeStrategy.Overwrite),
+    updateTsConfigSpec(options),
+    removeTestTs(options),
+    mergeWith(apply(url("./files"), []), MergeStrategy.Overwrite),
   ]);
-}
-
-function addJestConfig(_options: AngularJestOptions): Rule {
-  return (tree: Tree) => {
-    addPropertyToPackageJson(tree, 'jest', {
-      preset: "jest-preset-angular",
-      setupTestFrameworkScriptFile: "<rootDir>/src/setupJest.ts"
-    });
-  };
 }
 
 function addJestScripts(_options: AngularJestOptions): Rule {
   return (tree: Tree) => {
-    addScriptToPackageJson(tree, 'test:jest', 'jest');
-    addScriptToPackageJson(tree, 'test:jest:watch', 'jest --watch');
+    addScriptToPackageJson(tree, "test:jest", "jest");
+    addScriptToPackageJson(tree, "test:jest:watch", "jest --watch");
   };
 }
 
 function addDependendencies(_otpions: AngularJestOptions) {
   return (tree: Tree) => {
-    addPackageJsonDependency(tree, 'devDependencies', 'jest', jestVersion);
-    addPackageJsonDependency(tree, 'devDependencies', 'jest-preset-angular', jestAngularPreset);
+    addPackageJsonDependency(tree, "devDependencies", "jest", jestVersion);
+    addPackageJsonDependency(
+      tree,
+      "devDependencies",
+      "jest-preset-angular",
+      jestPresetAngularVersion
+    );
+    addPackageJsonDependency(
+      tree,
+      "devDependencies",
+      "@types/jest",
+      typesJestVersion
+    );
+  };
+}
+
+function updateTsConfigSpec(_options: AngularJestOptions): Rule {
+  return (tree: Tree) => {
+    addPropertyToTsConfigSpecCompilerOptions(tree, "esModuleInterop", true);
+    addTypeToTsConfigSpecCompilerOptions(tree, "jest");
+  };
+}
+
+function removeTestTs(_options: AngularJestOptions): Rule {
+  return (tree: Tree) => {
+    tree.delete("src/test.ts");
   };
 }
 

@@ -1,2 +1,3 @@
-export const jestVersion = '^22.0.0';
-export const jestAngularPreset = '5.2.2';
+export const jestVersion = "^26.0.0";
+export const jestPresetAngularVersion = "^8.0.0";
+export const typesJestVersion = "^26.0.0";
