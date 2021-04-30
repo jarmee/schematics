@@ -1,6 +1,6 @@
 {
   "name": "@jarmee/schematics",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A collection of schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json && npm run copy-non-ts-files",
