@@ -13,6 +13,8 @@ To apply this package to an already existing Angular workspace you only have to 
 3. To prevent inconveniences the schematic will remove the `src/test.ts` file from your workspace.
 4. Finally it will add the files `jest.config.js`, `jestGlobalMocks.ts` and `setup-jest.ts` to the root of your Angular workspace.
 
+After the configuration process has been finished you can run `npm run jest` or `yarn jest` to test your Angular workspace with `jest`.
+
 ## License
 
 This project is licensed under the MIT License
