@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "tsconfig",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "outDir": "lib/",
     "declaration": true,
     "module": "commonjs",
@@ -21,15 +18,9 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es6",
-    "types": [
-      "jasmine",
-      "node"
-    ]
+    "types": ["jest", "node", "lodash-es"],
+    "allowJs": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/**/files/**/*"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/files/**/*"]
 }
