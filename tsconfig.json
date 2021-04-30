@@ -18,7 +18,8 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es6",
-    "types": ["jest", "node", "lodash-es"]
+    "types": ["jest", "node", "lodash-es"],
+    "allowJs": true
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/files/**/*"]
